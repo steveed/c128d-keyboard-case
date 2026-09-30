@@ -1,0 +1,12 @@
+# Container for this repo's tooling.
+#
+#   openscad   OpenSCAD nightly (the manifold backend needs 2025 or later).
+#              `make` runs every render through it:
+#                docker compose run --rm openscad openscad -o stl/tray_left.stl -D 'part="tray_left"' c128d_case.scad
+
+services:
+  openscad:
+    image: openscad/openscad:dev
+    working_dir: /case
+    volumes:
+      - .:/case
